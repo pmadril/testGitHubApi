@@ -16,13 +16,13 @@
   <script src="../javascripts/gh3.js"></script>
   <script>
 
-    var k33g = new Gh3.User("k33g")
+    var k33g = new Gh3.User("pmadril")
       ,	repoTitle = $("h1")
       ,	branchTitle = $("h2")
       ,	branchContents = $("ul")
       ,	rawContent = $("textarea");
 
-    var k33gBlog = new Gh3.Repository("k33g.github.com", k33g);
+    var k33gBlog = new Gh3.Repository("pmadril.github.com", k33g);
 
     k33gBlog.fetch(function (err, res) {
       if(err) { throw "outch ..." }
@@ -45,9 +45,9 @@
 
           //var myfile = master.getContents()[8];
 
-          var myfile = master.getFileByName("index.html");
+          var myfile = master.getFileByName("README.md");
 
-          console.log("index.html", myfile);
+          console.log("README.md", myfile);
 
           myfile.fetchContent(function (err, res) {
             if(err) { throw "outch ..." }
