@@ -53,8 +53,12 @@
 
           myfile.fetchContent(function (err, res) {
             if(err) { throw "outch ..." }
-
+            
+            inputContent.value("teste input");
+            formContent.append(inputContent);
             rawContent.text(myfile.getRawContent());
+            formContent.append(rawContent);
+
           });
 
           myfile.fetchCommits(function (err, res) {
@@ -74,34 +78,7 @@
 
 
   </script>
-    <div id="content">
-      <form>
-          <input id="_repository" value="{{ page.repository }}">
-        <input id="postTitle" name="postTitle" placeholder="Enter the post title..." >
-        <br />
-        <div id="postEditor">
-          <textarea id="postMarkdown" placeholder="Write your post..."></textarea>
-          <div id="postPreview"></div>
-        </div>
-        <a class="btn info" data-controls-modal="commit-modal" data-backdrop="static">Commit</a>
-      </form>
 
-      <div id="commit-modal" class="modal hide fade">
-        <div class="modal-header">
-          <a href="#" class="close">×</a>
-          <h3>Okay, just one more step!</h3>
-        </div>
-        <div class="modal-body">
-          <input id="username" name="username" placeholder="Enter GitHub username..." >
-          <input id="password" name="password" type="password" placeholder="Password...">
-          <a href="#">Why?</a>
-        </div>
-        <div class="modal-footer">
-          <a href="#" class="btn info" id="commitButton">Commit this Post</a>
-        </div>
-      </div>
-</div>
-  
 </body>
 
 </html>
