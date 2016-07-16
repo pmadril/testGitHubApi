@@ -9,6 +9,12 @@
 	<h1></h1>
 	<h2></h2>
 	<ul></ul>
+	<form>
+        <input id="postTitle" name="postTitle" placeholder="Enter the post title..." >
+        <br />
+        <textarea id="postMarkdown" placeholder="Write your post..."></textarea>
+        <a class="btn info" data-controls-modal="commit-modal" data-backdrop="static">Commit</a>
+	</form>
 	<textarea></textarea>
 
   <script src="../javascripts/jquery-2.1.0.min.js"></script>
@@ -20,8 +26,6 @@
       ,	repoTitle = $("h1")
       ,	branchTitle = $("h2")
       ,	branchContents = $("ul")
-      , formContent = $("form")
-      , inputContent =$("input")
       ,	rawContent = $("textarea");
 
     var k33gBlog = new Gh3.Repository("testGitHubApi", k33g);
@@ -54,10 +58,7 @@
           myfile.fetchContent(function (err, res) {
             if(err) { throw "outch ..." }
             
-            inputContent.value("teste input");
-            formContent.append(inputContent);
             rawContent.text(myfile.getRawContent());
-            formContent.append(rawContent);
 
           });
 
